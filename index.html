@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>My Book Library</title>
+</head>
+
+<body>
+  <div class=button-box>
+    <button onclick="formOpen()">Add New Book</button>
+  </div>
+  
+  <div class="form-dropdown" id="new-book-entry">
+    <form class="form-box">
+      <label for="title">Book Title</label>
+      <input type="text" placeholder="Book Title" name="title">
+
+      <label for="author">Book Author</label>
+      <input type="text" placeholder="Book Author" name="author">
+
+      <label for="pages">Pages</label>
+      <input type="number" placeholder="Pages" name="pages">
+
+      <label for="read">Read</label>
+      <input type="checkbox" placeholder="Read" name="read">
+
+      <button type=submit>Add Entry</button>
+      <button onclick="formClose()">Close</button>
+    </form>
+  </div>
+</body>
+<script src="script.js"></script>
+
+</html>
