@@ -10,4 +10,23 @@ body {
 
 .form-dropdown {
   display: none;
+  width: 100%;
+  margin-left: 25%;
+}
+
+.button-box, .form-box {
+  padding: .25%;
+}
+
+.library-row {
+  width: 480px;
+}
+
+.library-row > ul {
+  /* text-align: center; */
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  /* width: 100%; */
 }
