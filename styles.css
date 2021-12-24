@@ -8,9 +8,17 @@ body {
   align-items: center;
 }
 
-.form-dropdown {
+#new-book-entry {
   display: none;
+}
+
+.form-dropdown {
   width: 100%;
+}
+
+.form-box {
+  display: flex;
+  justify-content: center;
 }
 
 .button-box, .form-box {
@@ -29,3 +37,8 @@ body {
   padding: 0;
   /* width: 100%; */
 }
+
+.close-btn {
+  margin-left: 10px;
+}
+
