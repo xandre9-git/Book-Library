@@ -10,14 +10,12 @@
 </head>
 
 <body>
-
   <div class=button-box>
     <button onclick="formOpen()">Add New Book</button>
   </div>
 
   <div class="form-dropdown" id="new-book-entry">
     <form class="form-box">
-
       <label for="title">Book Title</label>
       <input type="text" placeholder="Book Title" name="title" id="book-title">
 
@@ -30,27 +28,23 @@
       <label for="read">Read</label>
       <input type="checkbox" placeholder="Read" name="read" id="book-read">
 
-      <button type="button" class="submit-btn">Add Entry</button>
-      
-      <button onclick="formClose()" class="close-btn">x</button>
+      <button type=submit onclick="addLibraryBook()">Add Entry</button>
+      <button onclick="formClose()">x</button>
     </form>
   </div>
 
   <h2>Library</h2>
     <div class="library-row">
-
       <ul>
         <li>Book</li>
         <li>Author</li>
         <li>Pages</li>
-        <li>Read</li>
+        <li>Read
       </ul>
-
     </div>
 
 
 </body>
-
 <script src="script.js"></script>
 
 </html>

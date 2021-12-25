@@ -38,7 +38,8 @@ addLibraryBook(rentalBook);
 const body = document.querySelector('body');
 const booksDiv = document.createElement('div');
 const bookList = document.createElement('ul');
-bookList.textContent = "Test string."
+bookList.className = "bookList"
+bookList.textContent = "";
 
 
 // console.log(bookList);
@@ -49,6 +50,7 @@ console.log(booksDiv);
 
 function bookIterator(arr, childNode){
   let listItem = document.createElement('li');
+  listItem.className = "listItem"
   for (i = 0; i < arr.length; i++) {
     // console.log(i)
     console.log(arr[i])
@@ -66,6 +68,8 @@ function bookIterator(arr, childNode){
 }
 
 bookIterator(libraryBooks, booksDiv)
+
+body.appendChild(booksDiv);
 
 // Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read and anything else you might want.
 
@@ -87,15 +91,15 @@ let pages = document.getElementById('book-pages').value;
 let read = document.getElementById('book-read').value;
 
 
-const submitButton = document.querySelector('.submit-btn');
-submitButton.addEventListener('click', ()=>{
-  let inputs = document.getElementsByTagName('input');
-  console.log(inputs)
+// const submitButton = document.querySelector('.submit-btn');
+// submitButton.addEventListener('click', ()=>{
+//   let inputs = document.getElementsByTagName('input');
+//   // console.log(inputs)
 
-  // alert('Works')
+//   // alert('Works')
  
-  // function is to pull all input values and return as an object
-});
+//   // function is to pull all input values and return as an object
+// });
 
 // console.log(title);
 // console.log(author);

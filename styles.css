@@ -42,3 +42,11 @@ body {
   margin-left: 10px;
 }
 
+.bookList > ul {
+
+}
+
+.listItem {
+  list-style-type: none;
+}
+
