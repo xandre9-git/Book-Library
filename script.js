@@ -49,8 +49,7 @@ booksDiv.appendChild(bookList);
 console.log(booksDiv);
 
 function bookIterator(arr, childNode){
-  let listItem = document.createElement('li');
-  listItem.className = "listItem"
+  let listItems = []
   for (i = 0; i < arr.length; i++) {
     // console.log(i)
     console.log(arr[i])
@@ -61,13 +60,20 @@ function bookIterator(arr, childNode){
     // childNode.textContent = `${arr[i].title} ${arr[i].author} ${arr[i].pageNum} ${arr[i].read}`;
     // create new list item and append
     // booksDiv.appendChild(bookList);
+    let listItem = document.createElement('li');
+    listItem.className = "listItem"
     listItem.textContent = `${arr[i].title}`
-    return bookList.appendChild(listItem);
-    console.log(bookList);
+    listItems.push(listItem);
+    console.log(listItems);
+    bookList.appendChild(listItem);
+    // console.log(bookList);
+    
   }
+  // return bookList.appendChild(listItem);
 }
 
-bookIterator(libraryBooks, booksDiv)
+let testRow = bookIterator(libraryBooks, booksDiv);
+console.log(`Test row: ${testRow}`)
 
 body.appendChild(booksDiv);
 
