@@ -1,5 +1,5 @@
 * {
-  border: solid black 1px;
+  /* border: solid black 1px; */
 }
 
 body {
@@ -33,7 +33,7 @@ body {
   /* text-align: center; */
   list-style-type: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 0;
   /* width: 100%; */
 }
@@ -42,13 +42,31 @@ body {
   margin-left: 10px;
 }
 
+.titles {
+  text-align: center;
+  font-weight: bold;
+}
+
 .bookList {
   list-style-type: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  padding: 0;
 }
 
 .listItem {
   list-style-type: none;
 }
 
+.booksContainer {
+  width: 960px;
+}
+
+.titleListItem {
+  width: 360px;
+}
+
+.authorListItem, .pageNumListItem, .readListItem {
+  width: 120px;
+  text-align: center;
+}
