@@ -16,17 +16,17 @@
 
   <div class="form-dropdown" id="new-book-entry">
     <form class="form-box">
-      <label for="title">Book Title</label>
+      <label for="title">Book</label>
       <input type="text" placeholder="Book Title" name="title" id="book-title">
 
-      <label for="author">Book Author</label>
+      <label for="author"> Author</label>
       <input type="text" placeholder="Book Author" name="author" id="book-author">
 
       <label for="pages">Pages</label>
       <input type="number" placeholder="Pages" name="pages" id="book-pages">
 
       <label for="read">Read</label>
-      <input type="checkbox" placeholder="Read" name="read" id="book-read">
+      <input type="checkbox" name="read" id="book-read">
 
       <button type=submit onclick="addLibraryBook()">Add Entry</button>
       <button onclick="formClose()">x</button>
@@ -35,11 +35,11 @@
 
   <h2>Library</h2>
     <div class="library-row">
-      <ul>
-        <li>Book</li>
-        <li>Author</li>
-        <li>Pages</li>
-        <li>Read</li>
+      <ul class="titles">
+        <li class="titleListItem">Book</li> 
+        <li class="authorListItem">Author</li>
+        <li class="pageNumListItem">Pages</li>
+        <li class="readListItem">Read</li>
       </ul>
     </div>
 
