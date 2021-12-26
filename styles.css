@@ -1,5 +1,5 @@
 * {
-
+  border: solid black 1px;
 }
 
 body {
@@ -26,7 +26,7 @@ body {
 }
 
 .library-row {
-  width: 480px;
+  width: 960px;
 }
 
 .library-row > ul {
@@ -42,8 +42,10 @@ body {
   margin-left: 10px;
 }
 
-.bookList > ul {
-
+.bookList {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .listItem {
