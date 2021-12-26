@@ -37,43 +37,49 @@ addLibraryBook(rentalBook);
 
 const body = document.querySelector('body');
 const booksDiv = document.createElement('div');
-const bookList = document.createElement('ul');
-bookList.className = "bookList"
-bookList.textContent = "";
-
-
-// console.log(bookList);
-
-
-booksDiv.appendChild(bookList);
-console.log(booksDiv);
+booksDiv.className = 'booksContainer'
 
 function bookIterator(arr, childNode){
   let listItems = []
   for (i = 0; i < arr.length; i++) {
-    // console.log(i)
     console.log(arr[i])
-    // console.log(arr[i].author);
-    // console.log(arr[i].title);
-    // console.log(arr[i].pageNum);
-    // console.log(arr[i].read);
-    // childNode.textContent = `${arr[i].title} ${arr[i].author} ${arr[i].pageNum} ${arr[i].read}`;
-    // create new list item and append
-    // booksDiv.appendChild(bookList);
-    let listItem = document.createElement('li');
-    listItem.className = "listItem"
-    listItem.textContent = `${arr[i].title}`
-    listItems.push(listItem);
-    console.log(listItems);
-    bookList.appendChild(listItem);
-    // console.log(bookList);
+
+    const bookList = document.createElement('ul');
+    bookList.className = "bookList"
+    bookList.textContent = "";
+
+    let titleListItem = document.createElement('li');
+    titleListItem.className = "titleListItem"
+    titleListItem.textContent = `${arr[i].title}`
+    listItems.push(titleListItem);
+
+    let authorListItem = document.createElement('li');
+    authorListItem.className = "authorListItem"
+    authorListItem.textContent = `${arr[i].author}`
+    listItems.push(authorListItem);
+
+    let pageNumListItem = document.createElement('li');
+    pageNumListItem.className = "pageNumListItem"
+    pageNumListItem.textContent = `${arr[i].pageNum}`
+    listItems.push(pageNumListItem);
+
+    let readListItem = document.createElement('li');
+    readListItem.className = "readListItem"
+    readListItem.textContent = `${arr[i].read}`
+    listItems.push(readListItem);
+
+    booksDiv.appendChild(bookList);
+    bookList.appendChild(titleListItem);
+    bookList.appendChild(authorListItem);
+    bookList.appendChild(pageNumListItem);
+    bookList.appendChild(readListItem);
     
   }
-  // return bookList.appendChild(listItem);
+  return;
 }
 
-let testRow = bookIterator(libraryBooks, booksDiv);
-console.log(`Test row: ${testRow}`)
+bookIterator(libraryBooks, booksDiv);
+
 
 body.appendChild(booksDiv);
 
