@@ -95,23 +95,34 @@ function formClose() {
 
 // This section is for getting the data from the form and setting the variables for use in the object constructor.
 
-let title = document.getElementById('book-title').value;
+let title = document.getElementById('book-title')
+console.log(title)
+
+let author = document.getElementById('book-author')
+let pages = document.getElementById('book-pages')
+
+let read = document.getElementById('book-read')
+console.log(read);
 
 
-let author = document.getElementById('book-author').value;
-let pages = document.getElementById('book-pages').value;
-let read = document.getElementById('book-read').value;
+const submitButton = document.querySelector('#submit-btn');
+submitButton.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  e.preventDefault();
+  console.log(e.target)
+  console.log(title.value);
+  console.log(author.value);
+  console.log(pages.value);
+  console.log(read.checked);
+  let newEntry = getInputValues(title.value, author.value, pages.value, read.checked);
+  console.log(libraryBooks)
 
+  addLibraryBook(newEntry);
+  console.log(libraryBooks);
 
-// const submitButton = document.querySelector('.submit-btn');
-// submitButton.addEventListener('click', ()=>{
-//   let inputs = document.getElementsByTagName('input');
-//   // console.log(inputs)
-
-//   // alert('Works')
  
-//   // function is to pull all input values and return as an object
-// });
+});
+
 
 // console.log(title);
 // console.log(author);
@@ -132,9 +143,9 @@ const libraryBox = document.createElement('div');
 // Need to implement function that takes values from inputs and displays under library row title. 
 
 function getInputValues(title, author, pages, read) {
-  let val = new Books(title, author, pages, read)
+  const val = new Books(title, author, pages, read)
   return val;
 }
 
-let testBook = getInputValues('Mark', "John", 612, 1);
+// let testBook = getInputValues('Mark', "John", 612, 1);
 // console.log(testBook)
