@@ -1,5 +1,6 @@
 * {
   /* border: solid black 1px; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 body {
@@ -18,10 +19,13 @@ body {
 
 .form-box {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 960px;
+  margin: 0 auto;
+  padding: 2.5%;
 }
 
-.button-box, .form-box {
+.button-box {
   padding: .25%;
 }
 
