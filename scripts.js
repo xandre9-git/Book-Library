@@ -42,37 +42,42 @@ booksDiv.className = 'booksContainer'
 function bookIterator(arr, childNode){
   let listItems = []
   for (i = 0; i < arr.length; i++) {
-    console.log(arr[i])
+    console.log(arr[i].title)
+    console.log(document.querySelectorAll('.titleListItem')[0].textContent)
 
-    const bookList = document.createElement('ul');
-    bookList.className = "bookList"
-    bookList.textContent = "";
-
-    let titleListItem = document.createElement('li');
-    titleListItem.className = "titleListItem"
-    titleListItem.textContent = `${arr[i].title}`
-    listItems.push(titleListItem);
-
-    let authorListItem = document.createElement('li');
-    authorListItem.className = "authorListItem"
-    authorListItem.textContent = `${arr[i].author}`
-    listItems.push(authorListItem);
-
-    let pageNumListItem = document.createElement('li');
-    pageNumListItem.className = "pageNumListItem"
-    pageNumListItem.textContent = `${arr[i].pageNum}`
-    listItems.push(pageNumListItem);
-
-    let readListItem = document.createElement('li');
-    readListItem.className = "readListItem"
-    readListItem.textContent = `${arr[i].read}`
-    listItems.push(readListItem);
-
-    booksDiv.appendChild(bookList);
-    bookList.appendChild(titleListItem);
-    bookList.appendChild(authorListItem);
-    bookList.appendChild(pageNumListItem);
-    bookList.appendChild(readListItem);
+    // if item is already displayed on page don't run actions below
+    if (arr[i].title != document.querySelectorAll('.titleListItem')[0].textContent) {
+      const bookList = document.createElement('ul');
+      bookList.className = "bookList"
+      bookList.textContent = "";
+  
+      let titleListItem = document.createElement('li');
+      titleListItem.className = "titleListItem"
+      titleListItem.textContent = `${arr[i].title}`
+      listItems.push(titleListItem);
+  
+      let authorListItem = document.createElement('li');
+      authorListItem.className = "authorListItem"
+      authorListItem.textContent = `${arr[i].author}`
+      listItems.push(authorListItem);
+  
+      let pageNumListItem = document.createElement('li');
+      pageNumListItem.className = "pageNumListItem"
+      pageNumListItem.textContent = `${arr[i].pageNum}`
+      listItems.push(pageNumListItem);
+  
+      let readListItem = document.createElement('li');
+      readListItem.className = "readListItem"
+      readListItem.textContent = `${arr[i].read}`
+      listItems.push(readListItem);
+  
+      booksDiv.appendChild(bookList);
+      bookList.appendChild(titleListItem);
+      bookList.appendChild(authorListItem);
+      bookList.appendChild(pageNumListItem);
+      bookList.appendChild(readListItem);
+    }
+    
     
   }
   return;
@@ -107,19 +112,22 @@ console.log(read);
 
 const submitButton = document.querySelector('#submit-btn');
 submitButton.addEventListener('click', (e)=>{
-  e.stopPropagation();
-  e.preventDefault();
+  // e.stopPropagation();
+  // e.preventDefault();
   console.log(e.target)
   console.log(title.value);
   console.log(author.value);
   console.log(pages.value);
   console.log(read.checked);
-  let newEntry = getInputValues(title.value, author.value, pages.value, read.checked);
+  
+  // console.log(newEntry);
   console.log(libraryBooks)
 
-  addLibraryBook(newEntry);
+  let newEntry = addLibraryBook(getInputValues(title.value, author.value, pages.value, read.checked));
+  // console.log(newEntry);
   console.log(libraryBooks);
-
+  bookIterator(libraryBooks, booksDiv)
+  return newEntry;
  
 });
 
@@ -149,3 +157,8 @@ function getInputValues(title, author, pages, read) {
 
 // let testBook = getInputValues('Mark', "John", 612, 1);
 // console.log(testBook)
+
+console.log(document.querySelectorAll('.titleListItem')[0].textContent)
+console.log(document.querySelectorAll('.titleListItem')[1].textContent)
+console.log(document.querySelectorAll('.titleListItem')[2].textContent)
+console.log(document.querySelectorAll('.titleListItem')[3].textContent)
