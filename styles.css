@@ -9,6 +9,12 @@ body {
   align-items: center;
 }
 
+footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+}
+
 #new-book-entry {
   display: none;
 }
@@ -74,4 +80,9 @@ body {
 .authorListItem, .pageNumListItem, .readListItem {
   width: 120px;
   text-align: center;
+}
+
+.deleteListItem {
+  height: 20px;
+  width: 20px;
 }
