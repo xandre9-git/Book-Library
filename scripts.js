@@ -78,12 +78,21 @@ function displayBookOnPage(obj) {
 	readListItem.className = "readListItem";
 	readListItem.textContent = `${obj.read}`;
 	listItems.push(readListItem);
+	
+	let deleteListItem = document.createElement('input');
+	deleteListItem.className = "deleteListItem";
+	deleteListItem.type = 'image';
+	deleteListItem.src = 'images/trash-bin.png'
+	// deleteListItem.type = "image"
+  // deleteListItem.style.backgroundImage = 'images/trash-bin.png'
+	listItems.push(deleteListItem);
 
 	booksDiv.appendChild(bookList);
 	bookList.appendChild(titleListItem);
 	bookList.appendChild(authorListItem);
 	bookList.appendChild(pageNumListItem);
 	bookList.appendChild(readListItem);
+	bookList.appendChild(deleteListItem);
 }
 
 // displayBookOnPage(cleanCode)
