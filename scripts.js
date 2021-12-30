@@ -58,6 +58,10 @@ function bookIterator(arr) {
     console.log(arr[i].title);
 		
 		console.log(arr[i])
+    // if book isnt already on page run code below
+    // if (x) {
+    //   displayBookOnPage(arr[i], i);
+    // }
     displayBookOnPage(arr[i], i);
   }
   return;
@@ -140,6 +144,7 @@ submitButton.addEventListener("click", () => {
   // localStorage.setItem(key, value) needs to occur here in order to save new book entry into libraryBook array permanently
   // localStorage can only store strings, objects/arrays will need to be converted using JSON.stringify() before passing into above function
   window.localStorage.setItem("book", JSON.stringify(libraryBooks));
+  document.location.reload();
   return displayBookOnPage(newEntry);
 });
 
@@ -155,28 +160,35 @@ function getInputValues(title, author, pages, read) {
 
 function deleteBookEntry(selection) {
   // this will remove respective book object from libraryBooks array
+  console.log(`${selection} was selected.`)
+  console.log(`libraryBooks before: ${libraryBooks}`);
   libraryBooks.splice(selection, 1);
+  console.log(`libraryBooks after: ${libraryBooks}`);
 }
 
 // 1. user clicks trash can
 // 2. program needs to select respective object from libraryBook array
 
 const deleteButton = document.querySelectorAll("#delete-btn");
-console.log(deleteButton[0])
-console.log(deleteButton[1])
-console.log(deleteButton[2])
-console.log(deleteButton[3])
-deleteButton.forEach((e) => {
+console.log(typeof(deleteButton));
+let deleteButtonArray = Array.from(deleteButton);
+console.log(deleteButtonArray);
 
+// forEach below has two args; event and iterator
+deleteButtonArray.forEach((e, i) => {
   e.addEventListener("click", (e) => {
     // alert("Pop up!");
-		console.log(e.target)
+		// console.log(e.target)
 		// console.log(libraryBooks[e])
-		console.log(e)
-		// deleteBookEntry(e)
-		for (let i = 0; i < libraryBooks.length; i++){
-			console.log(i);
-		}
+		// console.log(e)
+    console.log(`Iteration number: ${i}`);
+
+		deleteBookEntry(i);
+    // console.log(typeof(booksDiv));
+    console.log(booksDiv)
+    booksDiv.removeChild(document.querySelectorAll('.bookList')[i]);
+    window.localStorage.setItem("book", JSON.stringify(libraryBooks));
+    // console.log(i)
   });
 });
-console.log(deleteButton);
+
