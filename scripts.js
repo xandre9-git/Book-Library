@@ -3,7 +3,7 @@ function Books(title, author, pageNum, read) {
   this.title = title;
   this.author = author;
   this.pageNum = pageNum;
-  this.read = read == 1 ? "read" : "unread"; // 1 means read, 0 means not read yet
+  this.read = read;
   this.info = function info() {
     return `${this.title} by ${this.author}. It has ${this.pageNum} pages and is currently ${this.read}.`;
   };
@@ -92,9 +92,10 @@ function displayBookOnPage(obj, index) {
   pageNumListItem.textContent = `${obj.pageNum}`;
   listItems.push(pageNumListItem);
 
-  let readListItem = document.createElement("li");
+  let readListItem = document.createElement("input");
   readListItem.className = "readListItem";
-  readListItem.textContent = `${obj.read}`;
+  readListItem.type = "checkbox";
+  readListItem.checked = `${obj.read}`;
   listItems.push(readListItem);
 
   let deleteListItem = document.createElement("input");
@@ -138,12 +139,13 @@ submitButton.addEventListener("click", () => {
     title.value,
     author.value,
     pages.value,
-    read.checked
+    read
   );
   addLibraryBook(newEntry);
   // localStorage.setItem(key, value) needs to occur here in order to save new book entry into libraryBook array permanently
   // localStorage can only store strings, objects/arrays will need to be converted using JSON.stringify() before passing into above function
   window.localStorage.setItem("book", JSON.stringify(libraryBooks));
+  // reloads the page so new entries can be modified.
   document.location.reload();
   return displayBookOnPage(newEntry);
 });
