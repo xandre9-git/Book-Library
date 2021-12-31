@@ -1,3 +1,8 @@
+// GLOBALS
+
+let listItems = [];
+
+
 function Books(title, author, pageNum, read) {
   // object constructor
   this.title = title;
@@ -71,7 +76,6 @@ bookIterator(libraryBooks);
 body.appendChild(booksDiv);
 
 function displayBookOnPage(obj, index) {
-  let listItems = [];
   const bookList = document.createElement("ul");
   bookList.className = "bookList";
   bookList.textContent = "";
@@ -132,6 +136,7 @@ let title = document.getElementById("book-title");
 let author = document.getElementById("book-author");
 let pages = document.getElementById("book-pages");
 let read = document.getElementById("book-read");
+console.log(read.textContent);
 
 const submitButton = document.querySelector("#submit-btn");
 submitButton.addEventListener("click", () => {
@@ -139,7 +144,7 @@ submitButton.addEventListener("click", () => {
     title.value,
     author.value,
     pages.value,
-    read
+    read.checked
   );
   addLibraryBook(newEntry);
   // localStorage.setItem(key, value) needs to occur here in order to save new book entry into libraryBook array permanently
@@ -147,13 +152,15 @@ submitButton.addEventListener("click", () => {
   window.localStorage.setItem("book", JSON.stringify(libraryBooks));
   // reloads the page so new entries can be modified.
   document.location.reload();
-  return displayBookOnPage(newEntry);
+  displayBookOnPage(newEntry);
+  return newEntry;
 });
 
 // Need to implement function that takes values from inputs and displays under library row title.
 
 function getInputValues(title, author, pages, read) {
   const val = new Books(title, author, pages, read);
+  console.log(`This is the object that was created: ${val}`);
   return val;
 }
 
@@ -194,3 +201,14 @@ deleteButtonArray.forEach((e, i) => {
   });
 });
 
+// Add a button on each book’s display to change its read status.
+// To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
+
+function checkedUnchecked(res){
+  if (res === true){
+    res.checked = true;
+  } else {
+    res.checked = false;
+  }
+return res;
+}
