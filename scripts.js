@@ -185,6 +185,10 @@ deleteButtonArray.forEach((e, i) => {
 const readCheckBox = document.querySelectorAll('input.readListItem');
 let readCheckBoxArray = Array.from(readCheckBox);
 console.log(readCheckBoxArray);
-function readToggle(){
-  
-}
+
+readCheckBoxArray.forEach((e, i) => {
+  console.log(i);
+  e.addEventListener('click', (e) => {
+    console.log(e.target.checked);
+  })
+});
