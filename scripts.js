@@ -33,7 +33,7 @@ const eloquentJavaScript = new Books(
   0
 );
 
-console.log(rentalBook.info());
+// console.log(rentalBook.info());
 
 // All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array.
 
@@ -60,13 +60,6 @@ booksDiv.className = "booksContainer";
 
 function bookIterator(arr) {
   for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i].title);
-		
-		console.log(arr[i])
-    // if book isnt already on page run code below
-    // if (x) {
-    //   displayBookOnPage(arr[i], i);
-    // }
     displayBookOnPage(arr[i], i);
   }
   return;
@@ -99,7 +92,7 @@ function displayBookOnPage(obj, index) {
   let readListItem = document.createElement("input");
   readListItem.className = "readListItem";
   readListItem.type = "checkbox";
-  readListItem.checked = `${obj.read}`;
+  readListItem.checked = obj.read;
   listItems.push(readListItem);
 
   let deleteListItem = document.createElement("input");
@@ -136,7 +129,6 @@ let title = document.getElementById("book-title");
 let author = document.getElementById("book-author");
 let pages = document.getElementById("book-pages");
 let read = document.getElementById("book-read");
-console.log(read.textContent);
 
 const submitButton = document.querySelector("#submit-btn");
 submitButton.addEventListener("click", () => {
@@ -160,7 +152,6 @@ submitButton.addEventListener("click", () => {
 
 function getInputValues(title, author, pages, read) {
   const val = new Books(title, author, pages, read);
-  console.log(`This is the object that was created: ${val}`);
   return val;
 }
 
@@ -169,46 +160,31 @@ function getInputValues(title, author, pages, read) {
 
 function deleteBookEntry(selection) {
   // this will remove respective book object from libraryBooks array
-  console.log(`${selection} was selected.`)
-  console.log(`libraryBooks before: ${libraryBooks}`);
   libraryBooks.splice(selection, 1);
-  console.log(`libraryBooks after: ${libraryBooks}`);
+  document.location.reload();
 }
 
 // 1. user clicks trash can
 // 2. program needs to select respective object from libraryBook array
 
 const deleteButton = document.querySelectorAll("#delete-btn");
-console.log(typeof(deleteButton));
 let deleteButtonArray = Array.from(deleteButton);
-console.log(deleteButtonArray);
 
 // forEach below has two args; event and iterator
 deleteButtonArray.forEach((e, i) => {
   e.addEventListener("click", (e) => {
-    // alert("Pop up!");
-		// console.log(e.target)
-		// console.log(libraryBooks[e])
-		// console.log(e)
-    console.log(`Iteration number: ${i}`);
-
 		deleteBookEntry(i);
-    // console.log(typeof(booksDiv));
-    console.log(booksDiv)
     booksDiv.removeChild(document.querySelectorAll('.bookList')[i]);
     window.localStorage.setItem("book", JSON.stringify(libraryBooks));
-    // console.log(i)
   });
 });
 
 // Add a button on each book’s display to change its read status.
 // To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
 
-function checkedUnchecked(res){
-  if (res === true){
-    res.checked = true;
-  } else {
-    res.checked = false;
-  }
-return res;
+const readCheckBox = document.querySelectorAll('input.readListItem');
+let readCheckBoxArray = Array.from(readCheckBox);
+console.log(readCheckBoxArray);
+function readToggle(){
+  
 }
