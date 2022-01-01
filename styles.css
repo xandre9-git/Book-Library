@@ -1,18 +1,33 @@
 * {
   /* border: solid black 1px; */
   font-family: Verdana, Geneva, Tahoma, sans-serif
+
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #e8ebee;
+  margin: 0;
+}
+
+header {
+  background-color: #1f2833;
+  width: 100%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
 }
 
 footer {
   display: block;
   position: fixed;
   bottom: 0;
+  font-size: 12px;
+  text-align: center;
 }
 
 #new-book-entry {
@@ -34,10 +49,18 @@ footer {
 
 .button-box {
   padding: .25%;
+  margin: 1.5%;
+}
+
+.new-book {
+  background-color: #1f2833;
+  color: white;
 }
 
 .library-row {
   width: 960px;
+  background-color: #1f2833;
+  color: white;
 }
 
 .library-row > ul {
