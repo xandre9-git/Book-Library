@@ -182,6 +182,10 @@ deleteButtonArray.forEach((e, i) => {
 // Add a button on each book’s display to change its read status.
 // To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
 
+function modifyReadStatus(bool, index){
+  libraryBooks[index].read = bool;
+}
+
 const readCheckBox = document.querySelectorAll('input.readListItem');
 let readCheckBoxArray = Array.from(readCheckBox);
 console.log(readCheckBoxArray);
@@ -190,5 +194,8 @@ readCheckBoxArray.forEach((e, i) => {
   console.log(i);
   e.addEventListener('click', (e) => {
     console.log(e.target.checked);
+    // set respective read value in library array
+    modifyReadStatus(e.target.checked, i);
+    window.localStorage.setItem("book", JSON.stringify(libraryBooks));
   })
 });
