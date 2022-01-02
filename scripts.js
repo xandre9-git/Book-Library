@@ -2,6 +2,13 @@
 
 let listItems = [];
 
+const cleanCode = new Books(
+  "Clean Code: A Handbook of Agile Software Craftsmanship",
+  "Robert C. Martin",
+  464,
+  0
+);
+
 function Books(title, author, pageNum, read) {
 	// object constructor
 	this.title = title;
@@ -22,6 +29,7 @@ function addLibraryBook(obj) {
 	libraryBooks.push(obj);
 }
 
+
 // Write a function that loops through the array and displays each book on the page. You can display them in some sort of table, or each on their own “card”. It might help for now to manually add a few books to your array so you can see the display.
 
 const body = document.querySelector("body");
@@ -29,8 +37,10 @@ const booksDiv = document.createElement("div");
 booksDiv.className = "booksContainer";
 
 function bookIterator(arr) {
-	for (let i = 0; i < arr.length; i++) {
-		displayBookOnPage(arr[i], i);
+	if (arr != null) {
+		for (let i = 0; i < arr.length; i++) {
+			displayBookOnPage(arr[i], i);
+		}
 	}
 	return;
 }
@@ -154,7 +164,6 @@ const readCheckBox = document.querySelectorAll('input.readListItem');
 let readCheckBoxArray = Array.from(readCheckBox);
 
 readCheckBoxArray.forEach((e, i) => {
-	console.log(i);
 	e.addEventListener('click', (e) => {
 		// set respective read value in library array
 		modifyReadStatus(e.target.checked, i);
