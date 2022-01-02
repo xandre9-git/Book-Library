@@ -24,8 +24,11 @@ function Books(title, author, pageNum, read) {
 
 // JSON.parse(window.localStorage.getItem()) is used to get data set on line 114. It had to be parsed from a string back to an object.
 let libraryBooks = JSON.parse(window.localStorage.getItem("book"));
+// let libraryBooks = [];
 
 function addLibraryBook(obj) {
+	libraryBooks = [];
+	libraryBooks = JSON.parse(window.localStorage.getItem("book"));
 	libraryBooks.push(obj);
 }
 
@@ -37,11 +40,10 @@ const booksDiv = document.createElement("div");
 booksDiv.className = "booksContainer";
 
 function bookIterator(arr) {
-	if (arr != null) {
 		for (let i = 0; i < arr.length; i++) {
 			displayBookOnPage(arr[i], i);
 		}
-	}
+	
 	return;
 }
 
