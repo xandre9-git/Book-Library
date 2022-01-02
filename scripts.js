@@ -23,12 +23,16 @@ function Books(title, author, pageNum, read) {
 // All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array.
 
 // JSON.parse(window.localStorage.getItem()) is used to get data set on line 114. It had to be parsed from a string back to an object.
-let libraryBooks = JSON.parse(window.localStorage.getItem("book"));
+// let libraryBooks = JSON.parse(window.localStorage.getItem("book"));
 // let libraryBooks = [];
+if (JSON.parse(window.localStorage.getItem("book")) != null) {
+	libraryBooks = JSON.parse(window.localStorage.getItem("book"));
+	console.log(libraryBooks);
+	console.log(`This section is firing.`)
+}
+
 
 function addLibraryBook(obj) {
-	libraryBooks = [];
-	libraryBooks = JSON.parse(window.localStorage.getItem("book"));
 	libraryBooks.push(obj);
 }
 
