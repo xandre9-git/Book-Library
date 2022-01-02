@@ -29,6 +29,8 @@ if (JSON.parse(window.localStorage.getItem("book")) != null) {
 	libraryBooks = JSON.parse(window.localStorage.getItem("book"));
 	console.log(libraryBooks);
 	console.log(`This section is firing.`)
+} else {
+	libraryBooks = [];
 }
 
 
