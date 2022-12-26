@@ -2,15 +2,19 @@
 
 let listItems = [];
 
-const cleanCode = new Books(
-  "Clean Code: A Handbook of Agile Software Craftsmanship",
-  "Robert C. Martin",
-  464,
-  0
-);
-
-function Books(title, author, pageNum, read) {
-	// object constructor
+// function Books(title, author, pageNum, read) {
+// 	// object constructor
+// 	this.title = title;
+// 	this.author = author;
+// 	this.pageNum = pageNum;
+// 	this.read = read;
+// 	this.info = function info() {
+// 		return `${this.title} by ${this.author}. It has ${this.pageNum} pages and is currently ${this.read}.`;
+// 	};
+// }
+class Books {
+	// class constructor
+	constructor(title, author, pageNum, read) {
 	this.title = title;
 	this.author = author;
 	this.pageNum = pageNum;
@@ -18,7 +22,16 @@ function Books(title, author, pageNum, read) {
 	this.info = function info() {
 		return `${this.title} by ${this.author}. It has ${this.pageNum} pages and is currently ${this.read}.`;
 	};
+	}
 }
+
+const cleanCode = new Books(
+  "Clean Code: A Handbook of Agile Software Craftsmanship",
+  "Robert C. Martin",
+  464,
+  0
+);
+
 
 // All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array.
 
